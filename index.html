@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .word-counter {
+      display: flex;
+    }
+
+    .word-counter textarea {
+      width: 300px;
+      height: 150px;
+      padding: 5px;
+      resize: none;
+    }
+
+    .word-counter p {
+      margin-left: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="word-counter">
+    <textarea id="input" placeholder="Enter your text..." oninput="countWords()"></textarea>
+    <p>Word Count: <span id="word-count">0</span></p>
+  </div>
+
+  <script>
+    function countWords() {
+      const textarea = document.getElementById('input');
+      const wordCount = document.getElementById('word-count');
+      const text = textarea.value.trim();
+      const words = text.split(/\s+/);
+      const count = words.length;
+      wordCount.textContent = count;
+    }
+  </script>
+</body>
+</html>
